@@ -1,0 +1,104 @@
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.dialog {
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 8.75px;
+  width: 444px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dialog-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+}
+
+.close-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #000000;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.product-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  margin: 0;
+}
+
+.product-description {
+  font-size: 16px;
+  font-weight: 400;
+  color: #717182;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.10);
+  margin: 4px 0;
+}
+
+.details-row {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.detail-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detail-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #717182;
+}
+
+.detail-value {
+  font-size: 12px;
+  font-weight: 400;
+  color: #000000;
+
+  &.price {
+    font-weight: 500;
+    color: #030213;
+  }
+
+  &.id {
+    font-size: 11px;
+  }
+}

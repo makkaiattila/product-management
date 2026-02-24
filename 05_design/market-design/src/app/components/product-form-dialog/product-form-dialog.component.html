@@ -1,0 +1,63 @@
+<div class="dialog-backdrop" (click)="onBackdropClick($event)">
+  <div class="dialog">
+    <div class="dialog-header">
+      <h2 class="dialog-title">{{ isEdit ? 'Edit Product' : 'Add New Product' }}</h2>
+      <button class="close-btn" (click)="close.emit()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label class="label">Product Name</label>
+        <input
+          class="input"
+          type="text"
+          formControlName="name"
+          placeholder="Enter product name"
+        />
+      </div>
+
+      <div class="field">
+        <label class="label">Description</label>
+        <textarea
+          class="input textarea"
+          formControlName="description"
+          placeholder="Enter product description"
+        ></textarea>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label class="label">Price ($)</label>
+          <input
+            class="input"
+            type="number"
+            step="0.01"
+            formControlName="price"
+            placeholder="0.00"
+          />
+        </div>
+        <div class="field">
+          <label class="label">Stock</label>
+          <input
+            class="input"
+            type="number"
+            formControlName="stock"
+            placeholder="0"
+          />
+        </div>
+      </div>
+
+      <div class="dialog-actions">
+        <button type="button" class="btn btn-cancel" (click)="close.emit()">Cancel</button>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+          {{ isEdit ? 'Update Product' : 'Add Product' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

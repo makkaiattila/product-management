@@ -1,0 +1,23 @@
+<div class="dialog-backdrop" (click)="onBackdropClick($event)">
+  <div class="dialog">
+    <div class="dialog-header">
+      <h2 class="dialog-title">Delete Product</h2>
+      <button class="close-btn" (click)="close.emit()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <p class="dialog-body">
+      Are you sure you want to delete "{{ product.name }}"?<br />
+      This action cannot be undone.
+    </p>
+
+    <div class="dialog-actions">
+      <button class="btn btn-cancel" (click)="close.emit()">Cancel</button>
+      <button class="btn btn-danger" (click)="confirm.emit()">Delete Product</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="page-container">
+  <h1 class="page-title">Product Management</h1>
+
+  <div class="toolbar">
+    <div class="search-wrapper">
+      <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input
+        class="search-input"
+        type="text"
+        placeholder="Search products..."
+        [(ngModel)]="searchQuery"
+      />
+    </div>
+    <button class="btn-add" (click)="openAdd()">
+      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+        <line x1="12" y1="5" x2="12" y2="19"/>
+        <line x1="5" y1="12" x2="19" y2="12"/>
+      </svg>
+      Add Product
+    </button>
+  </div>
+
+  @if (loading) {
+    <div class="loading">Loading...</div>
+  } @else if (filteredProducts.length === 0) {
+    <div class="empty">No products found.</div>
+  } @else {
+    <div class="product-grid">
+      @for (product of filteredProducts; track product.id) {
+        <app-product-card
+          [product]="product"
+          (view)="openView($event)"
+          (edit)="openEdit($event)"
+          (delete)="openDelete($event)"
+        />
+      }
+    </div>
+  }
+</div>
+
+@if (dialogMode === 'add' || dialogMode === 'edit') {
+  <app-product-form-dialog
+    [product]="selectedProduct"
+    (save)="onSave($event)"
+    (close)="closeDialog()"
+  />
+}
+
+@if (dialogMode === 'view' && selectedProduct) {
+  <app-product-detail-dialog
+    [product]="selectedProduct"
+    (close)="closeDialog()"
+  />
+}
+
+@if (dialogMode === 'delete' && selectedProduct) {
+  <app-delete-confirm-dialog
+    [product]="selectedProduct"
+    (confirm)="onDeleteConfirm()"
+    (close)="closeDialog()"
+  />
+}

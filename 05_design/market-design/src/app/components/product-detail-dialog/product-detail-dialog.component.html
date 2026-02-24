@@ -1,0 +1,33 @@
+<div class="dialog-backdrop" (click)="onBackdropClick($event)">
+  <div class="dialog">
+    <div class="dialog-header">
+      <h2 class="dialog-title">Product Details</h2>
+      <button class="close-btn" (click)="close.emit()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <h3 class="product-name">{{ product.name }}</h3>
+    <p class="product-description">{{ product.description }}</p>
+
+    <hr class="separator" />
+
+    <div class="details-row">
+      <div class="detail-group">
+        <span class="detail-label">Price:</span>
+        <span class="detail-value price">${{ product.price.toFixed(2) }}</span>
+      </div>
+      <div class="detail-group">
+        <span class="detail-label">Stock:</span>
+        <span class="detail-value">{{ product.stock }} units</span>
+      </div>
+      <div class="detail-group">
+        <span class="detail-label">Product ID:</span>
+        <span class="detail-value id">{{ product.id }}</span>
+      </div>
+    </div>
+  </div>
+</div>
