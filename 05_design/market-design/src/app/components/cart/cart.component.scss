@@ -1,0 +1,135 @@
+.cart-panel {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 260px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 12.75px;
+  padding: 14px;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+
+.cart-title {
+  font-size: 12.8px;
+  font-weight: 500;
+  color: #0a0a0a;
+  flex: 1;
+}
+
+.cart-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  background: #030213;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 9px;
+}
+
+.cart-empty {
+  font-size: 11.3px;
+  color: #717182;
+  margin: 0;
+  text-align: center;
+  padding: 8px 0;
+}
+
+.cart-list {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.cart-item-info {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  min-width: 0;
+}
+
+.cart-item-name {
+  font-size: 11.3px;
+  color: #0a0a0a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 110px;
+}
+
+.cart-item-qty {
+  font-size: 10.7px;
+  color: #717182;
+  flex-shrink: 0;
+}
+
+.cart-item-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.cart-item-price {
+  font-size: 11.3px;
+  font-weight: 500;
+  color: #030213;
+}
+
+.cart-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #717182;
+  border-radius: 4px;
+  transition: background 0.15s;
+
+  &:hover {
+    background: #f3f3f5;
+    color: #d4183d;
+  }
+
+  svg {
+    stroke: currentColor;
+  }
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid #e4e4e7;
+  font-size: 12.8px;
+  font-weight: 500;
+  color: #0a0a0a;
+}

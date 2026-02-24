@@ -35,6 +35,7 @@
           (view)="openView($event)"
           (edit)="openEdit($event)"
           (delete)="openDelete($event)"
+          (addToCart)="onAddToCart($event)"
         />
       }
     </div>
@@ -63,3 +64,8 @@
     (close)="closeDialog()"
   />
 }
+
+<app-cart
+  [cartItems]="cartItems"
+  (remove)="onRemoveFromCart($event)"
+/>
